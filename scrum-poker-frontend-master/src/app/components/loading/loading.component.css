@@ -1,0 +1,21 @@
+
+.st0{fill:none;
+    stroke:#000;
+    stroke-width:1;
+}
+.goldenSpiralBox{
+    width: 20%;
+    margin-left: 40%;
+    margin-right: 40%;
+    margin-top: 20%;
+animation: rotating 2s linear infinite;
+}
+@keyframes rotating {
+from {
+
+transform: rotate(0deg);
+}
+to {
+transform: rotate(360deg);
+}
+}

@@ -1,0 +1,17 @@
+<div class="footer-section">
+    <div class="voting-section">
+      <div class="cards" *ngFor="let element of voteOptions">
+        <div class="voting-section-listing">
+          <button mat-fab class="voting-section-listing-btn" (click)="giveVote(element.value)"
+             [ngClass]="element.value == score && votedForThisTicket() ? 'raised' : 'not-raised'" >
+            <div class="card-container">
+              <div class="card-score">
+                {{element.value | votesPipe}}
+              </div>
+              <img class="logo" src="../../../../../assets/logo.svg">
+            </div>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>

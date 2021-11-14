@@ -1,0 +1,37 @@
+/* You can add global styles to this file, and also import other style files */
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+}
+
+p {
+  font-family: "Raleway";
+  font-weight: 500;
+}
+
+.mat-horizontal-stepper {
+  .mat-button-wrapper {
+    font-family: "Raleway";
+    font-weight: 500;
+  }
+}
+
+* {
+  font-family: "Raleway";
+  font-weight: 500;
+}
+
+.tooltip-text {
+  font-size: 1rem;
+  max-height: 395px;
+  text-overflow: ellipsis;
+}
+
+.tooltip-red {
+  background: #b71c1c;
+  font-size: 0.9rem;
+}

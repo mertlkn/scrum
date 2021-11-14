@@ -1,0 +1,87 @@
+@import "../../../../../assets/colors.scss";
+$angles: -27deg,-21deg,-15deg,-9deg,-3deg,3deg,9deg,15deg,21deg,27deg;
+$yrotations: 9rem,6rem,3.7rem,2rem,1.2rem,1.2rem,2rem,3.7rem,6rem,9rem;
+$zindexes: 10,9,8,7,6,5,4,3,2,1;
+$bgcolors: $first,$second,$third,$fourth,$fifth,$sixth,$seventh,$eight,$ninth,$tenth;
+
+.voting-section {
+  display: flex;
+  justify-content: center;
+  &-listing {
+    &-btn {
+      display: flex;
+      justify-content: flex-end;
+      border-radius: 0.2rem;
+      height: 12rem;
+      width: 8rem;
+      margin-right: -1.5rem;
+      font-size: 2rem;
+      transition: all 300ms;
+    }
+    &-btn:hover {
+      
+    }
+  }
+}
+
+.footer-section {
+  display: flex;
+  justify-content: center;
+  margin-top: 3rem;
+}
+
+.raised {
+  margin-top: -5rem;
+}
+
+.not-raised:hover {
+  margin-top: -1rem;
+}
+
+.final-vote { 
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+  &-input {
+    background: transparent;
+  }
+}
+
+.description {
+  display: flex;
+  justify-content: center;
+  margin-top: 5rem;
+}
+
+@for $i from 1 through length($angles) {
+  $ang: nth($angles, $i);
+  $yrot: nth($yrotations, $i);
+  $z: nth($zindexes, $i);
+  $bg: nth($bgcolors, $i);
+  .cards:nth-child(#{$i}) {
+    transform: rotate($ang) translateY($yrot);
+    z-index: $z;
+    .voting-section-listing-btn{
+      background: $bg;
+    }
+  }
+}
+
+.card-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.card-score {
+  margin-right: -2.5rem;
+  margin-top: -0.5rem;
+  font-size: 2rem;
+  color: $white;
+}
+
+.logo {
+  height: 6rem;
+  margin-top: 1rem;
+  margin-right: 1.5rem; 
+  filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(207deg) brightness(113%) contrast(97%);
+}

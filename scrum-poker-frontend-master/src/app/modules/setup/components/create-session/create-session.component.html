@@ -1,0 +1,117 @@
+<mat-horizontal-stepper linear>
+    <mat-step label="{{'dashboard.dialog.information' | translate}}" [completed]="isCompleted()">
+        <div class="container">
+            <div class="session">
+                <form [formGroup]="sessionForm">
+                    <div class="session-name-input">
+                        <mat-form-field>
+                            <mat-label>{{ 'dashboard.dialog.sessionname' | translate}}</mat-label>
+                            <input matInput formControlName="sessionName"/>
+                        </mat-form-field>
+                        <mat-form-field>
+                            <mat-label>{{'dashboard.dialog.voteType' | translate}}</mat-label>
+                            <mat-select class="selector" [(value)]="voteTypesSelected" formControlName="voteType">
+                                <mat-option *ngFor="let voteType of voteTypes" [value] = "voteType.type">
+                                    {{voteType.show}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                        <mat-divider></mat-divider>
+                        <ng-container >
+                            <div class="tickets" *ngIf="!this.jira">
+                                <form [formGroup]="ticketForm" class="tickets__form--group">
+                                    <div class="tickets__form">
+                                        <div class="ticket-name">
+                                            <mat-form-field>
+                                                <mat-label>{{ 'dashboard.dialog.ticketname' | translate}}</mat-label>
+                                                <input matInput formControlName="ticketName"/>
+                                            </mat-form-field>
+                                        </div>
+                                        <div class="ticket-no">
+                                            <mat-form-field>
+                                                <mat-label>{{ 'dashboard.dialog.ticketnumber' | translate}}</mat-label>
+                                                <input matInput formControlName="ticketNo"/>
+                                            </mat-form-field>
+                                        </div>
+                                        <div class="ticket-description">
+                                            <mat-form-field>
+                                                <mat-label>{{ 'dashboard.dialog.ticketdescription' | translate}}</mat-label>
+                                                <input matInput formControlName="ticketDescription"/>
+                                            </mat-form-field>
+                                        </div>
+                                        <div class="add-save-button-container">
+                                            <ng-container *ngIf="!isEditing">
+                                                <button mat-raised-button (click)="addNewTicket()">{{ 'dashboard.dialog.ticketadd' | translate}}</button>
+                                            </ng-container>
+                                            <ng-container *ngIf="isEditing">
+                                                <button mat-raised-button (click)="saveTicket()">{{ 'dashboard.dialog.ticketsave' | translate}}</button>
+                                            </ng-container>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </ng-container>
+                    </div>
+                </form>
+            </div>
+            <mat-divider [vertical]="true"></mat-divider>
+            <div *ngIf="this.jira" class="jira_selector_issues">
+                <mat-select class="selector" [(value)]="jiraProjectSelected" placeholder="Select project">
+                    <mat-option *ngFor="let domain of domains" [value] = "domain.id">
+                        {{domain.name}}
+                    </mat-option>
+                </mat-select>
+                <hr style="width: 100%;">
+                <div class="issues__list">
+                    <div *ngFor="let issue of issues; let i = index" [attr.data-index]="i" class="issues__list--issue">
+                        <div class="issues__list--issue--info">
+                            <p>{{issue.issueName}} - {{issue.issueNumber}}</p>
+                        </div>
+                        <div class="issues__list--issue--action">
+                            <img class="clickable-icon" (click)="addTicketJira(i)" src="assets/icons/add.svg">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="tickets__list">
+                <div>
+                    <div *ngFor="let ticket of tickets; let i = index" [attr.data-index]="i" class="tickets__list--ticket">
+                        <div class="tickets__list--ticket--info">
+                            <p>{{ticket.ticketId}} - {{ticket.ticketName}}</p>
+                            <div class="tickets__list--ticket--action">
+                                <fa-icon class="clickable-icon" (click)="editTicket(i)" [icon]="faEdit" *ngIf="!jira"></fa-icon>
+                                <fa-icon class="clickable-icon" (click)="deleteTicket(i)" [icon]="faTrashAlt"></fa-icon>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div>
+            <button mat-raised-button class="nextButton" matStepperNext>{{ 'dashboard.dialog.sessionreviewbutton' | translate}}</button>
+        </div>
+    </mat-step>
+    <mat-step label="{{'dashboard.dialog.review' | translate}}">
+        <p>{{ 'dashboard.dialog.sessionreviewlabel' | translate}}</p>
+        <div class="summary-container">
+            <div class="summary-container__table">
+                <mat-accordion class="headers-align">
+                    <mat-expansion-panel hideToggle *ngFor="let ticket of tickets">
+                      <mat-expansion-panel-header>
+                        <mat-panel-title>
+                          {{ticket.ticketName}}
+                        </mat-panel-title>
+                        <mat-panel-description class="summary-container__table--desc">
+                            {{ticket.ticketId}}
+                        </mat-panel-description>
+                      </mat-expansion-panel-header>
+                      {{ticket.ticketDesc}}
+                    </mat-expansion-panel>
+                  </mat-accordion>
+            </div>
+            <div class="summary-container__action">
+                <button mat-raised-button (click)="saveSession()">{{ 'dashboard.dialog.sessioncreate' | translate}}&nbsp;<img src="assets/icons/check.svg"></button>
+            </div>
+        </div>
+    </mat-step>
+</mat-horizontal-stepper>

@@ -1,0 +1,221 @@
+@import "../../../../../assets/colors.scss";
+
+.container {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.sidenav {
+  display: flex;
+  flex-direction: column;
+  width: 50px;
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 100;
+  padding: 0 1rem 0 1rem;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  background-color: $black;
+  transition: width 1s, border-left 1s, box-shadow 1s;
+  box-shadow: 0 0 0 0 rgb(0 0 0 / 50%);
+  &__header {
+    display: flex;
+    &--avatar {
+      display: block;
+      border-radius: 50%;
+      border: 2px solid white;
+      height: 2.5em;
+      width: 2.5em;
+      margin-bottom: 3rem;
+      margin-top: 1rem;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .app-header {
+      height: 5rem;
+      margin-right: -1rem;
+      margin-left: 1rem;
+      flex-grow: 1;
+      ::ng-deep.header-container {
+        color: $white;
+        .avatar {
+          filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(67deg) brightness(104%) contrast(97%);
+        }
+      }
+      float: initial;
+      opacity: 0;
+      width: 0;
+      transition: opacity 0.2s, width 1s;
+      &.open {
+        transition: opacity 4s, width 1s;
+        opacity: 1;
+        width: 340px;
+      }
+    } 
+  }
+  &__container {
+    background-color: $black;
+    height: 80vh;
+    width: 100%;
+    &--table {
+      width: 420px;
+    }
+    &--row {
+      width: 100px;
+    }
+    &--item {
+      color: $white !important;
+      all: unset;
+      flex-grow: 1;
+      z-index: 100;
+      display: flex;
+      cursor: pointer;
+      position: relative;
+      border-radius: 50%;
+      align-items: center;
+      will-change: transform;
+      justify-content: flex-start;
+      padding: 1em 0 0.1em;
+      transition: transform 1.4s;
+      &.title {
+        font-size: 1.2rem !important;
+        margin-left: 10px;
+        text-align: left;
+      }
+      &.collapsed {
+        opacity: 0;
+        transition: opacity 0.6s;
+      }
+      &.collapsed.open {
+        opacity: 1;
+      }
+    }
+    &--item::before {
+      content: "";
+      z-index: -1;
+      width: 4.2em;
+      height: 4.2em;
+      border-radius: 50%;
+      position: absolute;
+      transform: scale(0);
+      transition: background-color 3s, transform 3s;
+    }
+    &--item.active {
+      transform: translate3d(-2rem, 0, 0);
+      font-weight: 600;
+      font-size: 1.5rem;
+      &.open {
+        transform: translate3d(0, 0, 0);
+      }
+    }
+    &--item.active::before {
+      transform: scale(1);
+    }
+  }
+  &__blob {
+    right: -45px;
+    top: 0;
+    width: 10.9em;
+    height: 2.4em;
+    position: absolute;
+    clip-path: url(#menu);
+    will-change: transform;
+    background-color: $black;
+    transition: transform 0.7s, opacity 2.2s;
+    opacity: 0;
+    &.open{
+      opacity: 0;
+    }
+  }
+}
+
+.sidenav.open {
+  width: 400px;
+  border-left: 35px solid $black;
+  box-shadow: 0 0 20px 0 rgb(0 0 0 / 50%);
+  &.pinned {
+    box-shadow: 0 0 0px 0 rgb(0 0 0 / 50%);
+  }
+  &__container--item--collapsed{
+    opacity: 1;
+  }
+}
+
+@keyframes strok {
+  100% {
+    stroke-dashoffset: 400;
+  }
+}
+
+.svg-container {
+  width: 0;
+  height: 0;
+}
+
+.sidenav-footer {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  font-size: 2rem;
+  justify-content: space-between;
+  height: 10vh;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  &.sidenav-pin {
+    opacity: 0;
+    &.open {
+      opacity: 1;
+    }
+  }
+
+}
+
+.sidenav-lang {
+  display: flex;
+  cursor: pointer;
+  .lang {
+    color: $white;
+    font-size: 1.5rem;
+    width: 2rem;
+    height: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.current-lang {
+  color: $black !important;
+  background-color: $white;
+}
+
+.sidenav-pin, .sidenav-lock {
+  margin-right: 10px;
+}
+
+.sidenav-pinned {
+  &-not {
+    transform: rotate(45deg);
+  }
+}
+
+.clickable-icon {
+  color: $white;
+  cursor: pointer;
+}
+
+.ticket-score {
+  margin-top: 10px;
+  background-color: white;
+  border-radius: 50%;
+  height: 2rem;
+  width: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.revealed {
+  text-decoration: line-through;
+}

@@ -1,0 +1,68 @@
+<div class="page-container">
+  <div class="sidenav-container" *ngIf="!isSessionLoading">
+    <div class="content-container">
+      <div class="wrapper" *ngIf="isSessionLoading">
+        <div class="inner">
+          <!-- TODO -->
+        </div>
+      </div>
+      <div class="main-container" *ngIf="!isSessionLoading">
+        <div class="header-section">
+          <div class="session-title-section">
+            <div class="title"> 
+              &nbsp;&nbsp;
+              <img (click)="gotodashboard()" src="../../../../../assets/logo.svg" class="logo">
+              &nbsp;>&nbsp;
+              {{session.sessionName}}
+              &nbsp;>&nbsp;
+              #
+              <a (mouseenter)="overlayOpen()" (mouseleave)="overlayClose()">
+                {{session.currentTicketId}}
+                <div class="overlay" *ngIf="overlayOpened" [@enterAnimation]>
+                  <p>{{currentTicket.ticketDesc}}</p>
+                </div>
+              </a>
+            </div>
+          </div>
+          <div class="active-user" *ngFor="let activeUser of session.activeUsers, let i = index;">
+            <div class="active-user__section">
+              <img class="active-user__section--avatar" src={{activeUser.userAvatar}} alt="avatar" (mouseenter)="activateUserName(i)" (mouseleave)="deactivateUserName(i)">
+              <fa-icon [icon]="faCheck" [ngClass]="checkIfVoted(activeUser.userId) ? 'voted' : 'notVoted'"></fa-icon>
+              <b class="active-user__section--name" [@enterAnimation]>{{activeUser.userName}}</b>
+            </div>
+          </div>
+          <div class="not-active-user" *ngFor="let notActiveUser of notActiveUsers, let i = index;">
+            <div class="active-user__section">
+              <img class="active-user__section--avatar not-active" src={{notActiveUser.userAvatar}} alt="avatar" (mouseenter)="activateUserNameNotActive(i)" (mouseleave)="deactivateUserNameNotActive(i)">
+              <div class="offline"></div>
+              <b class="active-user__section--name" [@enterAnimation]>{{notActiveUser.userName}}</b>
+            </div>
+          </div>
+        </div>
+        <div class="final-vote-section">
+          <div *ngIf="isAdmin && revealVotes">
+            <div class="final-vote" *ngIf="!finalVoteSent">
+              <mat-form-field appearance="outline">              
+                <mat-label>{{'session.final_vote' | translate}}</mat-label>
+                <input matInput class="final-vote-input" type="text" #vote>
+                <button class="icon-buttons" matSuffix mat-icon-button aria-label="Clear">
+                  <mat-icon>close</mat-icon>
+                </button>
+                <button class="icon-buttons" matSuffix mat-icon-button aria-label="Log" (click)='sendFinalVote(vote.value)'>
+                  <mat-icon>done</mat-icon>
+                </button>
+              </mat-form-field>
+            </div>
+         </div>
+          <div class="final-vote" *ngIf="finalVoteSent">
+            <button mat-button color="primary" type="button" (click)='sendFinalVote("")'>{{'session.revoke' | translate}}</button>
+          </div>
+        </div>
+        <!--app-session-header [session]="session" [isAdmin]="isAdmin" [revealVotes]="revealVotes"></app-session-header-->
+        <app-session-cards class="app-session-cards" [session]="session" [revealVotes]="revealVotes" [currentTicket]="currentTicket" [voteChange]="voteChange" [revealChange]="revealChange" [isAdmin]="isAdmin"></app-session-cards>
+        <app-session-footer [session]="session" [score]="score" [currentTicket]="currentTicket"  [isAdmin]="isAdmin" [votedForThisTicket]="votedForThisTicket" [voteOptions]="voteOptions"></app-session-footer>
+      </div>
+      <app-side-bar  [isAdmin]="isAdmin" [ticketList]="session.ticketList" [open]="sidenavOpened" (mouseover)="sidenavOpen()" (mouseleave)="sidenavClose()" [currentTicket]="currentTicket" (newTicket)="setTicket($event)" class="side-bar" [sidenavPinned]="sidenavPinned" (pinChange)="pinChange($event)" [currentLang]="currentLang" [changeLanguage]="changeLanguage" (handleLanguage)="handleLanguage()" [changeTo]="changeTo" [sidenavLocked]="sidenavLocked" (sidenavLockChange)="sidenavLockChange()"></app-side-bar>
+    </div>
+  </div>
+</div>

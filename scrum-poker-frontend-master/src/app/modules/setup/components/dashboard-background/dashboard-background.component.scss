@@ -1,0 +1,149 @@
+.fibonacci-wrapper {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  background-color: #fbfbfb;
+  overflow: hidden;
+}
+
+.fibonacci-cards {
+  $card-width: 2.5vw;
+  $card-height: 3.5vw;
+  $card-rotate-speed: 20s;
+
+  $card-color1: #507da6;
+  $card-color2: #537460;
+  $card-color3: #69a051;
+  $card-color4: #d1d029;
+  $card-color5: #fee40a;
+  $card-color6: #fcb022;
+  $card-color7: #ec7026;
+  $card-color8: #e34753;
+  $card-color9: #822d65;
+  $card-color10: #4b225c;
+
+  position: absolute;
+  right: 0;
+  top: 10vw;
+  bottom: 0;
+  left: 59vw;
+  margin: auto;
+  transform: rotate(-40deg);
+  width: $card-width * 21;
+  height: $card-height * 34;
+
+  .card {
+    box-sizing: border-box;
+    position: absolute;
+    border: 0px solid;
+    &.card-1 {
+      width: $card-width * 20;
+      height: $card-height * 20;
+      bottom: 0;
+      animation-name: none;
+      background-color: $card-color1;
+    }
+
+    &.card-2 {
+      width: $card-width * 17;
+      height: $card-height * 17;
+      transform-origin: top left;
+      top: -$card-height * 2.5;
+      left: -$card-width * 3.5;
+      animation: card-rotate $card-rotate-speed infinite;
+      background-color: $card-color2;
+    }
+
+    &.card-3 {
+      width: $card-width * 14;
+      height: $card-height * 14;
+      transform-origin: top left;
+      top: -$card-height * 2.5;
+      left: -$card-width * 3.5;
+      animation: card-rotate $card-rotate-speed infinite;
+      background-color: $card-color3;
+    }
+
+    &.card-4 {
+      width: $card-width * 11;
+      height: $card-height * 11;
+      transform-origin: top left;
+      top: -$card-height * 2.5;
+      left: -$card-width * 3.5;
+      animation: card-rotate $card-rotate-speed infinite;
+      background-color: $card-color4;
+    }
+
+    &.card-5 {
+      width: $card-width * 8;
+      height: $card-height * 8;
+      transform-origin: top left;
+      top: -$card-height * 2;
+      left: -$card-width * 3;
+      animation: card-rotate $card-rotate-speed infinite;
+      background-color: $card-color5;
+    }
+
+    &.card-6 {
+      width: $card-width * 6;
+      height: $card-height * 6;
+      transform-origin: top left;
+      top: -$card-height * 2;
+      left: -$card-width * 3;
+      animation: card-rotate $card-rotate-speed infinite;
+      background-color: $card-color6;
+    }
+
+    &.card-7 {
+      width: $card-width * 5;
+      height: $card-height * 5;
+      transform-origin: top left;
+      top: -$card-height * 2;
+      left: -$card-width * 3;
+      animation: card-rotate $card-rotate-speed infinite;
+      background-color: $card-color7;
+    }
+
+    &.card-8 {
+      width: $card-width * 4;
+      height: $card-height * 4;
+      transform-origin: top left;
+      top: -$card-height * 1.8;
+      left: -$card-width * 1.7;
+      animation: card-rotate $card-rotate-speed infinite;
+      background-color: $card-color8;
+    }
+
+    &.card-9 {
+      width: $card-width * 3;
+      height: $card-height * 3;
+      transform-origin: top left;
+      top: -$card-height * 1.5;
+      left: -$card-width * 1.5;
+      animation: card-rotate $card-rotate-speed infinite;
+      background-color: $card-color9;
+    }
+
+    &.card-10 {
+      width: $card-width * 2;
+      height: $card-height * 2;
+      transform-origin: top left;
+      top: -$card-height;
+      left: -$card-width;
+      animation: card-rotate $card-rotate-speed infinite;
+      background-color: $card-color10;
+    }
+  }
+
+  @keyframes card-rotate {
+    0% {
+      transform: rotate(38deg);
+    }
+    50% {
+      transform: rotate(40deg);
+    }
+    100% {
+      transform: rotate(38deg);
+    }
+  }
+}

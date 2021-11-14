@@ -1,0 +1,92 @@
+@import "../../../../../assets/colors.scss";
+
+.cards {
+  &.open-cards {
+    margin-top: -15%;
+    display: flex;
+    margin-left: 25px;
+    margin-right: 10px;
+    justify-content: space-evenly;
+  }
+}
+
+.container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 300px;
+  height: 300px;
+  margin: -150px;
+  float: left;
+  perspective: 1000px;
+}
+
+.card {
+  background-color: white;
+  left: 44%;
+  top: 33%;
+  position: absolute;
+  width: 250px;
+  height: 350px;
+  border-radius: 10px;
+  transition: all 700ms;
+  border: 1px solid #ccc;
+  cursor: pointer;
+  border-bottom-color: #000;
+  &.open {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    position: relative;
+    left:auto;
+    transition: all 1000ms;
+    box-shadow: 0 10px 24px rgba(0,0,0,0.2);
+    margin-right: 15px;
+    display: flex;
+    font-size: 10rem;
+    transform-style: preserve-3d;
+  }
+}
+
+.card.down:last-child:hover {
+  transform: rotateX(60deg) rotateY(0deg) rotateZ(-30deg) translateZ(120px) !important;
+  // i put the following line because when there is only one card in the stack, hover would move the shadow with the card
+  // so the solution i thought was to remove the shadow altogether
+  box-shadow: 0px 0px 0px 0px rgba(0,0,0) !important;
+}
+
+.avatar {
+  border-radius: 50%;
+  height: auto;
+  width: 4rem;
+  margin-left: 1rem;
+  border: 2px solid $black;
+  background-color: $black;
+}
+
+.user-avatar {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.user-vote {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.front,.back {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background: white;
+  line-height: 200px;
+  text-align: center;
+  font-size: 60px;
+  border-radius: 5px;
+  backface-visibility: hidden;
+}
+
+.back {
+  background: $white;
+  transform: rotateY( 180deg );
+}

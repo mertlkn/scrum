@@ -1,0 +1,67 @@
+<div class="container" style="text-align: right;">
+  <menu class="sidenav" [class.open]="open" [class.pinned]="sidenavPinned">
+    <div class="sidenav__header">
+      <app-header class="app-header" [class.open]="open">
+      </app-header>
+      <img class="sidenav__header--avatar" src={{userAvatar}} alt="avatar">
+    </div>
+    <mat-divider></mat-divider>
+    <div class="sidenav__container">
+      <table class="sidenav__container--table">
+        <tr #tk *ngFor="let ticket of ticketList; let index = index" class="sidenav__container--row">
+          <td><button class="sidenav__container--item" (click)="click(tk, ticket)" [class.open]="open"
+              #tooltip="matTooltip" matTooltip="{{ticket.ticketName}}" matTooltipClass="tooltip-text"
+              matTooltipPosition="left" [matTooltipDisabled]="!sidenavLocked" [class.revealed]="ticket.ticketScore"
+              [class.active]="ticket.ticketId == activeId">#{{ticket.ticketId}} </button></td>
+          <td><button class="sidenav__container--item title collapsed" [class.open]="open" #tooltip="matTooltip"
+              matTooltip="{{ticket.ticketDesc}}" matTooltipClass="tooltip-text" [class.revealed]="ticket.ticketScore"
+              [class.active]="ticket.ticketId == activeId" (click)="click(tk, ticket)">{{ticket.ticketName}}</button>
+          </td>
+          <td>
+            <div class="ticket-score" *ngIf="ticket.ticketScore">
+              {{ticket.ticketScore}}
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div class="sidenav-footer" [class.open]="open">
+      <div class="sidenav-pin" (click)="newPinChange()"
+        [ngClass]="sidenavPinned ? 'sidenav-pinned' : 'sidenav-pinned-not'">
+        <fa-icon [icon]="faThumbtack" class="clickable-icon" *ngIf="open" [@enterAnimation] #tooltip="matTooltip"
+          matTooltip="{{ 'footer.pin' | translate}}" matTooltipClass="tooltip-red"></fa-icon>
+      </div>
+      <div class="sidenav-lock" #tooltip="matTooltip" matTooltip="{{ 'footer.lock' | translate}}"
+        matTooltipClass="tooltip-red">
+        <fa-icon (click)="newSidenavLockChange()" class="clickable-icon" [icon]="faLockOpen"
+          *ngIf="open && !sidenavLocked" [@lockAnimation]></fa-icon>
+        <fa-icon (click)="newSidenavLockChange()" class="clickable-icon" [icon]="faLock" *ngIf="sidenavLocked"
+          [@lockAnimation]></fa-icon>
+      </div>
+      <div class="sidenav-lang" *ngIf="open" [@enterAnimation]>
+        <div class="lang" (click)="changeLanguage()"
+          [ngClass]="this.currentLang == 'en' ? 'current-lang' : 'changeto-lang'">
+          <a>
+            en
+          </a>
+        </div>
+        <div class="lang" (click)="changeLanguage()"
+          [ngClass]="this.currentLang == 'tr' ? 'current-lang' : 'changeto-lang'">
+          <a>
+            tr
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="sidenav__blob" [class.open]="open"></div>
+  </menu>
+  <div class="svg-container">
+    <svg viewBox="0 0 202.9 45.5">
+      <clipPath id="menu" clipPathUnits="objectBoundingBox" transform="scale(0.0029285362247413 0.015978021978022)">
+        <path d="M6.7,45.5c5.7,0.1,14.1-0.4,23.3-4c5.7-2.3,9.9-5,18.1-10.5c10.7-7.1,11.8-9.2,20.6-14.3c5-2.9,9.2-5.2,15.2-7
+              c7.1-2.1,13.3-2.3,17.6-2.1c4.2-0.2,10.5,0.1,17.6,2.1c6.1,1.8,10.2,4.1,15.2,7c8.8,5,9.9,7.1,20.6,14.3c8.3,5.5,12.4,8.2,18.1,10.5
+              c9.2,3.6,17.6,4.2,23.3,4H6.7z" />
+      </clipPath>
+    </svg>
+  </div>
+</div>

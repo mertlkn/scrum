@@ -1,0 +1,62 @@
+@import '~@angular/material/theming';
+@import '/src/assets/colors.scss';
+@include mat-core();
+
+$dark-primary-text: rgba(black, 0.87);
+
+$my-palette-primary: (
+ 50: #2e2e2eff,
+ 100: #2e2e2eff,
+ 200: #2e2e2eff,
+ 300: #2e2e2eff,
+ 400: #2e2e2eff,
+ 500: #2e2e2eff,
+ 600: #2e2e2eff,
+ 700: #2e2e2eff,
+ 800: #2e2e2eff,
+ 900: #2e2e2eff,
+ contrast: (
+   50: $dark-primary-text,
+   100: $dark-primary-text,
+   200: $dark-primary-text,
+   300: $dark-primary-text,
+   400: $dark-primary-text,
+   500: $dark-primary-text,
+   600: $dark-primary-text,
+   700: $dark-primary-text,
+   800: $dark-primary-text,
+   900: $dark-primary-text
+ )
+);
+
+$my-palette-accent: (
+ 50: #fbfbfbff,
+ 100: #fbfbfbff,
+ 200: #fbfbfbff,
+ 300: #fbfbfbff,
+ 400: #fbfbfbff,
+ 500: #fbfbfbff,
+ 600: #fbfbfbff,
+ 700: #fbfbfbff,
+ 800: #fbfbfbff,
+ 900: #fbfbfbff,
+ contrast: (
+   50: $dark-primary-text,
+   100: $dark-primary-text,
+   200: $dark-primary-text,
+   300: $dark-primary-text,
+   400: $dark-primary-text,
+   500: $dark-primary-text,
+   600: $dark-primary-text,
+   700: $dark-primary-text,
+   800: $dark-primary-text,
+   900: $dark-primary-text
+ )
+);
+
+$theme-primary: mat-palette($my-palette-primary);
+$theme-accent: mat-palette($my-palette-accent);
+
+$my-theme: mat-light-theme($theme-primary,$theme-accent);
+
+@include angular-material-theme($my-theme);

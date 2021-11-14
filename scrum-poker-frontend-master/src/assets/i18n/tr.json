@@ -1,0 +1,52 @@
+{
+    "session" : {
+        "finalvote" : "Puanı gönder",
+        "revoke" : "Puanı geri al",
+        "pinsidenav" : "Sabitle",
+        "scrumpoker" : "Scrum Poker",
+        "tickets" : "Kayıtlar",
+        "final_vote" : "Lütfen son puanı belirtiniz"
+    },
+    "header" : {
+        "signout" : "Çıkış yapmak istediğinize emin misiniz?",
+        "yes" : "Evet",
+        "no" : "Hayır",
+        "logged_in" : "Giriş yapan",
+        "hover_message" : "...Çıkış yap"
+    },
+    "footer" : {
+        "copyright" : "Project Penguin 2021, Hiçbir hakkı saklı değildir.",
+        "about" : "Hakkında",
+        "privacy" : "Gizlilik politikası",
+        "pin": "Yan menüyü devamlı açık tut",
+        "lock": "Yan menüyü devamlı kapalı tut"
+    },
+    "dashboard" : {
+        "scrumpoker" : "Scrum Poker",
+        "sessionid" : "Oturum Kimliği",
+        "createsession" : "Yeni Oturum Oluştur",
+        "createsession_jira_session" : "Jira ile Oturum Aç",
+        "createsession_jira_connect" : "Jira'ya Bağlan",
+        "createsession_jira_disconnect" : "Jira Bağlantısını Kes",
+        "dialog" : {
+            "sessionname" : "Oturum adı",
+            "ticketname" : "Kayıt adı",
+            "ticketnumber" : "Kayıt numarası",
+            "ticketdescription" : "Kayıt açıklaması",
+            "ticketadd" : "Kayıt ekle",
+            "ticketsave" : "Kaydet",
+            "sessionreviewbutton" : "Onayla",
+            "sessionreviewlabel" : "Lütfen oturum bilgilerini gözden geçirin",
+            "sessioncreate" : "Oturumu oluştur",
+            "information" : "Oturum Bilgisi",
+            "review" : "İncele",
+            "voteType" : "Oylama tipi seçiniz"
+        }
+    },
+    "warnings": {
+        "ticket": "Sadece oturum yöneticisi aktif kaydı değiştirebilir.",
+        "reveal": "Sadece oturum yöneticisi verilen oyları görüntüleyebilir.",
+        "change": "Oylar görüntülendikten sonra oyunuzu değiştiremezsiniz.",
+        "okay": "Peki"
+    }
+}

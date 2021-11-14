@@ -1,0 +1,7 @@
+<mat-dialog-content class="mat-typography">
+    {{'header.signout' | translate}}
+</mat-dialog-content>
+<mat-dialog-actions>
+    <button mat-button mat-dialog-close cdkFocusInitial>{{'header.no' | translate}}</button>
+    <button mat-raised-button mat-dialog-close (click)="signout()" style="background-color: rgb(120, 0, 0); color: white;">{{'header.yes' | translate}}</button>
+</mat-dialog-actions>

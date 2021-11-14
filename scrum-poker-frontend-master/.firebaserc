@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "scrum-poker-323411": {
+      "hosting": {
+        "scrum-poker-frontend": [
+          "scrum-poker-323411"
+        ]
+      }
+    }
+  }
+}

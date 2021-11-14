@@ -1,0 +1,18 @@
+<div class="cards" (click)="revealClick()" [ngClass]="{'open-cards': revealVotes}">
+    <ng-container class="container" *ngFor="let userVote of cards;">
+        <div class="card down">
+            <div class="front">
+                <img src="../../../../../assets/logo.svg">
+            </div>
+            <div class="back">
+                <div class="user-vote">
+                    {{userVote.userVote | votesPipe}}
+                </div>
+                <div class="user-avatar">
+                    <img class="avatar" src="{{userVote.userAvatar}}">
+                </div>
+            </div>
+        </div>
+    </ng-container>
+</div>
+

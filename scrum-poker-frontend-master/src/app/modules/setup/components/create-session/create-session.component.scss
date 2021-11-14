@@ -1,0 +1,95 @@
+@import "../../../../../assets/colors.scss";
+ 
+
+* {
+  font-family: Raleway;
+  font-size: 1.2rem;
+}
+
+::ng-deep.mat-step-icon-content {
+  color: $white;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+}
+
+::ng-deep.mat-step-icon-content {
+  color: $white;
+}
+
+.session {
+  flex: 1;
+}
+
+.tickets {
+  flex: 1;
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__list {
+    flex: 1;
+    align-items: flex-end;
+  }
+}
+
+
+.nextButton {
+  float: right;
+}
+
+.issues__list {
+  margin-top: 2rem;
+  &--issue {
+    display: flex;
+    &--info {
+    }
+  };
+}
+
+.ticket-name,.ticket-no,.ticket-description {
+  mat-form-field {
+    width: 80%;
+  }
+}
+
+.jira_selector_issues {
+  display: flex;
+  margin-left: 1rem;
+  flex-direction: column;
+}
+
+button {
+  background-color: $black;
+  color: $white;
+}
+
+.session-name-input {
+  display: flex;
+  flex-direction: column;
+  margin-right: 1rem;
+}
+
+.tickets__list--ticket--info {
+  display: flex;
+  justify-content: space-around;
+}
+
+.clickable-icon {
+  margin-left: 1rem;
+  cursor: pointer;
+}
+
+.summary-container__action {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 2rem;
+  color: $white;
+  &.button {
+    color: $white;
+  }
+}

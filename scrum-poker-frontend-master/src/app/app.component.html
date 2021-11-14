@@ -1,0 +1,7 @@
+<div class="wrapper" *ngIf="!isSignedIn() && window.location.pathname!='/login'">
+    <div class="inner">
+        <app-loading></app-loading>
+    </div>
+</div>
+<router-outlet *ngIf="isSignedIn() || window.location.pathname=='/login'"></router-outlet>
+

@@ -1,0 +1,7 @@
+<div class="header-container" (mouseenter)="signoutEnter()" (mouseleave)="signoutLeave()">
+    <img class="avatar" src="../../../../assets/id.svg">
+    <a>{{'header.logged_in' | translate}} {{name}}</a>
+    <div class="hover_message" (click)="openDialog()">
+        <a *ngIf="hovered" [@enterAnimation]>{{'header.hover_message' | translate}}</a>
+    </div>
+</div>

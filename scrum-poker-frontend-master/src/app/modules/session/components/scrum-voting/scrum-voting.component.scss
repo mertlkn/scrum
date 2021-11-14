@@ -1,0 +1,345 @@
+@import "../../../../../assets/colors.scss";
+.main-container {
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: column;
+  padding-top: 2rem;
+  flex-grow: 1;
+}
+.page-container {
+  min-height: 100%;
+  //background-image: url("../../../../../assets/bg2.png");
+  background-color: $white;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.session-title-section {
+  display: flex;
+  justify-content: space-between;
+  margin-right: 3rem;
+  margin-left: 3rem;
+}
+
+.title {
+  font-size: 2rem;
+  font-family: inherit;
+  display: flex;
+  margin-left: -2.5rem;
+  margin-top: -7rem;
+  align-items: center;
+  font-weight: 300;
+  & a {
+    color: black;
+  }
+}
+
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: calc(100vh - 20px);
+}
+
+
+.inner {
+  color: white;
+  padding: 12px;
+}
+
+.sidenav-container {
+  background: transparent;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  flex-grow: 1;
+}
+
+.sidebar-trigger-container {
+  background-color: $black;
+  width: 100px;
+}
+
+.sidebar-trigger {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  text-transform: uppercase;
+  &-text {
+      transform: rotate(90deg);
+      font-size: 1rem;
+      font-weight: bold;
+  }
+}
+
+.content-container {
+  display: flex;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  min-height: 100%;
+  overflow: auto;
+}
+
+.mat-drawer-content {
+  overflow: visible;
+}
+
+::ng-deep.mat-drawer-inner-container {
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.logo {
+  width: 3rem;
+  cursor:pointer;
+}
+
+.sidenav-button-tickets-container {
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+}
+
+.sidenav-button-tickets {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: $white;
+  &-text {
+
+  }
+}
+
+.sidenav-avatar {
+  display: block;
+  border-radius: 50%;
+  border: 2px solid white;
+  height: 5em;
+  width: 5em;
+  margin-bottom: 3rem;
+  margin-top: 1rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.sidenav-tickets {
+    display: flex;
+    flex-grow: 100;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: auto;
+  }
+
+::ng-deep.mat-drawer {
+  background-color: $black;
+}
+
+.sidenav-ticketId {
+  line-height: normal;
+  margin-left: 1rem;
+  width: 6rem;
+}
+
+.active-ticket {
+  .sidenav-ticketId-text,.sidenav-button-tickets-text {
+    border-radius: 50%;
+    background-color: $white;
+    color: $black;
+  }
+  font-weight: bold;
+}
+  
+.pinToggle {
+    margin-left: 25%;
+    color:$white;
+  }
+
+.avatar {
+  display: block;
+  border-radius: 50%;
+  border: 2px solid $white;
+  height: 5em;
+  width: 5em;
+  }
+
+.sidenav-header {
+  display: flex;
+  align-items: baseline;
+  margin-right: 1rem;
+}
+
+.app-header {
+  height: 5rem;
+  margin-right: -1rem;
+  margin-left: 1rem;
+  flex-grow: 1;
+  ::ng-deep.container {
+    color: $white;
+    .avatar {
+      filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(67deg) brightness(104%) contrast(97%);
+    }
+  }
+  float: initial;
+}
+
+.overlay {
+  max-height: 500px;
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 30px;
+  text-align: left;
+  padding: 1rem;
+  left: 30%;
+  right: 30%;
+  width: 40%;
+  min-height: 5vw;
+  overflow: auto;
+  font-size: 1.2rem;
+  font-family: Raleway;
+  background-color: $black;
+  color: $white;
+  z-index: 1;
+}
+
+.sidenav-ticketName {
+  top: 10%;
+}
+
+.active-user {
+  &__section{
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.75rem;
+    &--avatar{
+      border-radius: 50%;
+      height: auto;
+      width: 4rem;
+      margin-left: 1rem;
+      margin-right: 0.5rem;
+      border: 2px solid $black;
+      background-color: $black;
+    }
+    .not-active {
+      opacity: 80%;
+      transition: all 300ms;
+      &:hover {
+        opacity: 100%;
+      }
+    }
+    &--name{
+      opacity: 0% !important;
+      transition: all 500ms;
+      position: absolute;
+      left: 6rem;
+    }
+    .voted {
+      display: block;
+      position: relative;
+      left: -1.8rem;
+      top: 1.55rem;
+      color: green;
+      background: $white;
+      font-size: 1.5rem;
+      border-radius: 50%;
+      border: 2px solid #2e2e2eff;
+    }
+    .notVoted {
+      display: none;
+    }
+    .offline {
+      display: block;
+      position: relative;
+      background-color: grey;
+      border-radius: 50%;
+      border: 2px solid #2e2e2eff;
+      left: -1.8rem;
+      top: 1.55rem;
+      height: 1.5rem;
+      width: 1.5rem;
+    }
+  }
+}
+
+sidenav {
+  display: flex;
+}
+
+.sidenav-footer {
+  display: flex;
+  font-size: 2rem;
+  justify-content: space-between;
+  margin-bottom: 0.6rem;
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+
+.sidenav-lang {
+  display: flex;
+  cursor: pointer;
+  .lang {
+    width: 2rem;
+    height: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.current-lang {
+  background-color: $white;
+}
+
+.sidenav-pin {
+  cursor: pointer;
+  color: $white;
+}
+
+.sidenav-pinned {
+  &-not {
+    transform: rotate(45deg);
+  }
+}
+
+.ticket-list-table-row {
+  display: flex;
+  font-size: 2rem;
+  color: $white;
+  width: auto;
+  cursor: pointer;
+}
+
+.app-session-cards {
+  height: 200px;
+}
+
+.final-vote-section {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: -10%;
+}
+
+app-side-bar {
+  z-index: 100;
+}
+
+app-session-footer {
+  position: absolute;
+  bottom: 8%;
+  left: 20%;
+}
+
+.header-section {
+  position: absolute;
+  top: 10%;
+}

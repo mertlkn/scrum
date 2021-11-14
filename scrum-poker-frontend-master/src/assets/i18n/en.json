@@ -1,0 +1,52 @@
+{
+    "session" : {
+        "finalvote" : "Send final vote",
+        "revoke" : "Revoke final vote",
+        "pinsidenav" : "Pin tickets",
+        "scrumpoker" : "Scrum Poker",
+        "tickets" : "Tickets",
+        "final_vote" : "Please enter the final vote"
+    },
+    "header" : {
+        "signout" : "Are you sure you want to sign out?",
+        "yes" : "Yes",
+        "no" : "No",
+        "logged_in" : "Logged in as",
+        "hover_message" : "...Log out"
+    },
+    "footer" : {
+        "copyright" : "Project Penguin 2021, No rights reserved.",
+        "about" : "About",
+        "privacy" : "Privacy policy",
+        "pin": "Pin the sidebar open",
+        "lock": "Keep the sidebar collapsed"
+    },
+    "dashboard" : {
+        "scrumpoker" : "Scrum Poker",
+        "sessionid" : "Enter Session ID",
+        "createsession" : "Create New Session",
+        "createsession_jira_session" : "Session with Jira",
+        "createsession_jira_connect" : "Login with Jira",
+        "createsession_jira_disconnect" : "Logout from Jira",
+        "dialog" : {
+            "sessionname" : "Session Name",
+            "ticketname" : "Ticket Name",
+            "ticketnumber" : "Ticket Number",
+            "ticketdescription" : "Ticket Description",
+            "ticketadd" : "Add New Ticket",
+            "ticketsave" : "Save",
+            "sessionreviewbutton" : "Review Session",
+            "sessionreviewlabel" : "Please review the session",
+            "sessioncreate" : "Create session",
+            "information" : "Session Information",
+            "review" : "Review",
+            "voteType" : "Select vote options"
+        }
+    },
+    "warnings": {
+        "ticket": "Only session admins can change the current ticket.",
+        "reveal": "Only session admins can reveal the votes.",
+        "change": "You cannot change your vote after votes are revealed.",
+        "okay": "Okay"
+    }
+}

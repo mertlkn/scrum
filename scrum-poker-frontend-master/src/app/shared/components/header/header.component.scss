@@ -1,0 +1,51 @@
+@import "../../../../assets/colors.scss";
+.header {
+    background-color: transparent;
+    margin-top: 0px;
+    color: black ;
+}
+
+.header-container {
+    float:right;
+    text-align: center;
+    font-size: 1.5rem;
+    margin-right: 2rem;
+    margin-top: 2rem;
+    color: $black;
+}
+
+.avatar {
+    height: 1.5rem;
+    margin-right: 0.5rem;
+}
+
+.icon {
+    display: block;
+    border-radius: 50%;
+    border: 2px solid white;
+    color: rgb(120, 0, 0);
+    background: white;
+}
+
+.signout {
+    border-radius: 50%;
+    background: transparent;
+}
+
+.signout:hover {
+    cursor:pointer;
+}
+
+
+
+.hover_message {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 0.5rem;
+    font-size: 1.5rem;
+    font-family: Raleway;
+}
+.hover_message:hover {
+    cursor:pointer;
+}
+
